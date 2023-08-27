@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './Components/Header/Header'
 import Timer from './Components/Timer/Timer'
+import Competitors from './Components/Competitors/Competitors'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
      <div>
       <Header/>
       <Timer/>
+      <Competitors/>
      </div>
     </>
   )
