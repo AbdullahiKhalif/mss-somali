@@ -10,4 +10,6 @@ body{
   font-family: 'Poppins', sans-serif;
   background-color: mixsin.$primaryColor;
   color: mixsin.$primaryTextColor;
+  width: mixsin.$desktopBreakPoits;
+  margin: 0 auto;
 }
