@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './Components/Header/Header'
+import Timer from './Components/Timer/Timer'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
      <div>
       <Header/>
+      <Timer/>
      </div>
     </>
   )
