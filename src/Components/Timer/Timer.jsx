@@ -4,7 +4,7 @@ const Timer = () => {
   return (
     <div className={styles.countdown}>
         <h1>VOTING ENDS IN</h1>
-        <div className={styles.timer}>
+        <div className={styles.time}>
             <div className={styles.digit_text}>
                 <span className={styles.digit}>08:</span>
                 <span className={styles.text}>Days</span>
