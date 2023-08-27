@@ -22,4 +22,11 @@
             width: mixin.$tableBreakPoits;
         }
     }
+    .competitors{
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        margin: mixin.$spaceY;
+
+    }
 }

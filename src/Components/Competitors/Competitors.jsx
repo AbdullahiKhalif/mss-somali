@@ -1,4 +1,5 @@
 import competitors from '../../assets/competitors.json';
+import Competitor from './Competitor/Competitor';
 import styles from "./competitors.module.scss";
 
 const Competitors = () => {
@@ -12,7 +13,7 @@ const Competitors = () => {
         <div className={styles.competitors}>
             {
                 competitors.map((competitor) => (
-                    <span key={competitor.id}>{competitor.FirstName}</span>
+                    <Competitor competitor={competitor}/>
                 ))
             }
         </div>
