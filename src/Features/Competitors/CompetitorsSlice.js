@@ -13,8 +13,14 @@ const CompetitorsSlice = createSlice({
     setCurrentCompetitor: (state, action) => {
         state.currentCompetitor = action.payload;
     },
+    increaseVote: (state) => {
+        state.voteCount = state.voteCount + 1;
+    },
+    decreaseVote: (state) => {
+        state.voteCount = state.voteCount - 1;
+    },
   },
 });
 
 export default CompetitorsSlice.reducer;
-export const {setCurrentCompetitor} = CompetitorsSlice.actions;
+export const {setCurrentCompetitor, decreaseVote, increaseVote} = CompetitorsSlice.actions;

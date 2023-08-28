@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import styles from "./voteModal.module.scss";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { handleModal } from "../../../../Features/Modal/modalSlice";
-import { setCurrentCompetitor } from "../../../../Features/Competitors/CompetitorsSlice";
+import { decreaseVote, increaseVote, setCurrentCompetitor } from "../../../../Features/Competitors/CompetitorsSlice";
 import { useDispatch, useSelector } from "react-redux";
 const customStyles = {
   content: {
@@ -25,8 +25,8 @@ const VoteModal = () => {
   const { isOpen } = useSelector((store) => store.modal);
   // console.log(ModalState);
 
-  var { currentCompetitor } = useSelector((store) => store.competitor);
-  //console.log(myCompetitor)
+  var { currentCompetitor , voteCount} = useSelector((store) => store.competitor);
+  console.log(voteCount)
 
   function openModal() {
     setIsOpen(true);
@@ -44,7 +44,7 @@ const VoteModal = () => {
   if(!currentCompetitor) return;
   const backgroundStyle = {
     width: "100%",
-    height: "500px",
+    height: "400px",
     background: `linear-gradient(0deg,#128b4871,rgba(0,0,0,0) 60%,rgba(0,0,0,0)),url('${currentCompetitor.Photo}')`,
     backgroundSize: "cover",
     // objectFit: "cover",
@@ -96,11 +96,12 @@ const VoteModal = () => {
             <div className={styles.vote_count}>
               <span>Purchase Votes</span>
               <div className={styles.vote_controls}>
-              <button type="button">
+              <button type="button" 
+              onClick={() => dispatch(decreaseVote())}>
                   <AiOutlineMinus className={styles.icon} />
                 </button>
-                <span>50</span>
-                <button type="button">
+                <span>{voteCount}</span>
+                <button type="button" onClick={() => dispatch(increaseVote())}>
                   <AiOutlinePlus className={styles.icon} />
                 </button>
               
