@@ -35,9 +35,11 @@ const VoteModal = () => {
     const backgroundStyle = {
         width: "100%",
         height: "500px",
-        background: `linear-gradient(0deg,#128b4871,rgba(0,0,0,0) 60%,rgba(0,0,0,0)),url('https://unsplash.com/photos/mEZ3PoFGs_k')`,
+        background: `linear-gradient(0deg,#128b4871,rgba(0,0,0,0) 60%,rgba(0,0,0,0)),url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')`,
         backgroundSize: "cover",
+        // objectFit: "cover",
         backgroundRepeat: "no-repeat",
+        borderBottonRightRadius: "10px"
       };
   
     return (
@@ -50,13 +52,13 @@ const VoteModal = () => {
           style={customStyles}
           contentLabel="Example Modal"
           className={styles.modal}
-          overlayClassName={styles.overlayClassName}
+          overlayClassName={styles.overlay}
         >
             <div className={styles.modal_container}>
                 <div className={styles.competitor_info}>
                     <div style={backgroundStyle}></div>
 
-                    <div style={styles.bio}>
+                    <div className={styles.bio}>
                         <div className={styles.divider}>
                             <label htmlFor="">Name:</label>
                             <span>Farhio Abdi</span>
@@ -83,18 +85,20 @@ const VoteModal = () => {
                             <button type="button">
                                 <AiOutlinePlus className={styles.icon}/>
                             </button>
+                            <span>50</span>
                             <button type="button">
                         <AiOutlineMinus className={styles.icon}/>
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <form>
+                    <form>
                     <span>Pay with Evc, zaad, and Sahal</span>
                     <input type="text" className={styles.form_control} />
                     <button type="submit" className={styles.vote_now}>Vote Now</button>
                 </form>
+                </div>
+
+                
             </div>
           
         </Modal>
