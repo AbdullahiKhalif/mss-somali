@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./competitor.module.scss";
 import {MdHowToVote} from "react-icons/md";
 import { handleModal } from "../../../Features/Modal/modalSlice";
+import { setCurrentCompetitor } from "../../../Features/Competitors/CompetitorsSlice";
 import { useDispatch } from "react-redux";
 
 const Competitor = ({ competitor }) => {
@@ -14,6 +15,7 @@ const Competitor = ({ competitor }) => {
     backgroundRepeat: "no-repeat",
   };
   const voteNow = () =>{
+    dispatch(setCurrentCompetitor(competitor))
     dispatch(handleModal());
   }
   return (
