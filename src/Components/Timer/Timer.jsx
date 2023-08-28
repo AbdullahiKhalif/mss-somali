@@ -1,29 +1,31 @@
-import React from 'react'
-import styles from "./timer.module.scss"
+import React from "react";
+import { ReactDOM } from "react-dom/client";
+import styles from "./timer.module.scss";
+import Time from "./Time";
+import Countdown from "react-countdown";
 const Timer = () => {
-  return (
-    <div className={styles.countdown}>
-        <h1>VOTING ENDS IN</h1>
-        <div className={styles.time}>
-            <div className={styles.digit_text}>
-                <span className={styles.digit}>08:</span>
-                <span className={styles.text}>Days</span>
-            </div>
-            <div className={styles.digit_text}>
-                <span className={styles.digit}>02:</span>
-                <span className={styles.text}>Hours</span>
-            </div>
-            <div className={styles.digit_text}>
-                <span className={styles.digit}>44:</span>
-                <span className={styles.text}>Minites</span>
-            </div>
-            <div className={styles.digit_text}>
-                <span className={styles.digit}>31</span>
-                <span className={styles.text}>Seconds</span>
-            </div>
-        </div>
-    </div>
-  )
-}
+  const Completionist = () => <span>You are good to go!</span>
 
-export default Timer
+  // Renderer callback with condition
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // Render a completed state
+      return <Completionist />;
+    } else {
+      // Render a countdown
+      return (
+        <Time days={days} hours={hours} minutes={minutes} seconds={seconds} />
+      );
+    }
+  };
+
+//   ReactDOM.render(
+    
+//     document.getElementById("root")
+//   );
+  return <div className={styles.countdown}>
+    <Countdown date={Date.now() +  6739200000} renderer={renderer} />
+  </div>;
+};
+
+export default Timer;
