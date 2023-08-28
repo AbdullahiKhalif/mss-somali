@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import styles from "./voteModal.module.scss";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { handleModal } from "../../../../Features/Modal/modalSlice";
-import { decreaseVote, increaseVote, setCurrentCompetitor } from "../../../../Features/Competitors/CompetitorsSlice";
+import { decreaseVote, increaseVote, setCurrentCompetitor, addCompetitorVote, resutCompetitorInfo } from "../../../../Features/Competitors/CompetitorsSlice";
 import { useDispatch, useSelector } from "react-redux";
 const customStyles = {
   content: {
@@ -27,6 +27,12 @@ const VoteModal = () => {
 
   var { currentCompetitor , voteCount} = useSelector((store) => store.competitor);
   console.log(voteCount)
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addCompetitorVote(currentCompetitor.Id))
+    closeModal();
+    dispatch(resutCompetitorInfo())
+  }
 
   function openModal() {
     setIsOpen(true);
@@ -108,7 +114,7 @@ const VoteModal = () => {
                 
               </div>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <span>Pay with Evc, zaad, and Sahal</span>
               <input type="text" className={styles.form_control} />
               <button type="submit" className={styles.vote_now}>
