@@ -1,18 +1,38 @@
 @use "../../variables.scss" as mixin;
 .header {
-    margin: 1.5rem 0;
-    ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  margin: 1.5rem 0;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  li {
+    list-style: none !important;
+  }
+  a {
+    text-decoration: none;
+    color: mixin.$secondaryColor;
+    font-size: 1.55rem;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: mixin.$mobileBreakPoits) {
+  .header {
+    margin: 1.55rem;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    li{
-        list-style: none !important;
+    li {
+      list-style: none !important;
     }
-    a{
-        text-decoration: none;
-        color: mixin.$secondaryColor;
-        font-size: 1.55rem;
-        font-weight: 700;
+    a {
+      text-decoration: none;
+      color: mixin.$secondaryColor;
+      font-size: 1rem;
+      font-weight: 700;
     }
+  }
 }

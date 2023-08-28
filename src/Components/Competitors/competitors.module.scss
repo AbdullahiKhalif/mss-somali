@@ -28,6 +28,7 @@
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         margin: mixin.$spaceY;
         gap: 15px;
+        margin: 20px 10px;
 
     }
 }
