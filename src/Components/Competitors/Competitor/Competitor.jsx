@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "./competitor.module.scss";
 import {MdHowToVote} from "react-icons/md";
+import { handleModal } from "../../../Features/Modal/modalSlice";
+import { useDispatch } from "react-redux";
 
 const Competitor = ({ competitor }) => {
+  const dispatch  = useDispatch();
   const backgroundStyle = {
     width: "100%",
     // height: "500px",
@@ -10,6 +13,9 @@ const Competitor = ({ competitor }) => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
+  const voteNow = () =>{
+    dispatch(handleModal());
+  }
   return (
     <div className={styles.competitor} style={backgroundStyle}>
       <div className={styles.info}>
@@ -17,7 +23,7 @@ const Competitor = ({ competitor }) => {
         <span className={styles.state}>{competitor.RepresentingState}</span>
         <span className={styles.vote_count}>{competitor.NumberofVotes}</span>
       </div>
-      <div className={styles.vote}>
+      <div className={styles.vote} onClick={voteNow}> 
       <MdHowToVote className={styles.vote_icon}/>
       </div>
     </div>

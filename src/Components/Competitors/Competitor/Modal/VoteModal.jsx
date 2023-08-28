@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import styles from "./voteModal.module.scss";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
-import { useSelector } from "react-redux";
+import { handleModal } from "../../../../Features/Modal/modalSlice";
+import { useDispatch, useSelector } from "react-redux";
 const customStyles = {
     content: {
       top: "50%",
@@ -18,6 +19,7 @@ const customStyles = {
 
 
 const VoteModal = () => {
+    const dispatch = useDispatch();
     let subtitle;
     const [modalIsOpen, setIsOpen] = useState(false);
     const {isOpen} = useSelector((store) => store.modal);
@@ -33,7 +35,7 @@ const VoteModal = () => {
     }
 
     function closeModal() {
-      setIsOpen(false);
+      dispatch(handleModal())
     }
     const backgroundStyle = {
         width: "100%",
@@ -47,7 +49,7 @@ const VoteModal = () => {
   
     return (
       <div>
-        <button onClick={openModal}>Open Modal</button>
+     {/* <button onClick={() => dispatch(handleModal())}>Open Modal</button> */}
         <Modal
           isOpen={isOpen}
           onAfterOpen={afterOpenModal}
