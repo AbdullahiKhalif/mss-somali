@@ -12,8 +12,8 @@ const Competitors = () => {
 
         <div className={styles.competitors}>
             {
-                competitors.map((competitor) => (
-                    <Competitor competitor={competitor}/>
+                competitors.map((competitor,index) => (
+                    <Competitor key={index} competitor={competitor}/>
                 ))
             }
         </div>
