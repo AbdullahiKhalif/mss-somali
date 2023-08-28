@@ -24,7 +24,7 @@ const Timer = () => {
 //     document.getElementById("root")
 //   );
   return <div className={styles.countdown}>
-    <Countdown date={Date.now() +  6739200000} renderer={renderer} />
+    <Countdown date={Date.now() +  9072000000} renderer={renderer} />
   </div>;
 };
 

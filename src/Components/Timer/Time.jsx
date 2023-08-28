@@ -19,7 +19,7 @@ const Time = ({days, hours, minutes, seconds}) => {
                 <span className={styles.text}>Minites</span>
             </div>
             <div className={styles.digit_text}>
-                <span className={styles.digit}>{seconds}</span>
+                <span className={styles.digit_second}>{seconds}</span>
                 <span className={styles.text}>Seconds</span>
             </div>
         </div>
