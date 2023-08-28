@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import styles from "./voteModal.module.scss";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import { useSelector } from "react-redux";
 const customStyles = {
     content: {
       top: "50%",
@@ -19,6 +20,8 @@ const customStyles = {
 const VoteModal = () => {
     let subtitle;
     const [modalIsOpen, setIsOpen] = useState(false);
+    const {isOpen} = useSelector((store) => store.modal);
+   // console.log(ModalState);
 
     function openModal() {
       setIsOpen(true);
@@ -46,7 +49,7 @@ const VoteModal = () => {
       <div>
         <button onClick={openModal}>Open Modal</button>
         <Modal
-          isOpen={modalIsOpen}
+          isOpen={isOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
